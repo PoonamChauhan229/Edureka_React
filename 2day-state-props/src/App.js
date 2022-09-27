@@ -8,14 +8,24 @@ export default class App extends Component {
   constructor(){
     super()
     this.state={
-      productData:JSON  
+      productData:JSON,
+      filteredData:JSON 
     }
+  }
+
+  filteredProduct=(keyword)=>{
+    let output=this.state.productData.filter((data)=>{
+      return data.name.toLowerCase().indexOf(keyword.toLowerCase())>-1
+    })
+    this.setState({
+      filteredData:output
+    })
   }
   render() {
     return (
       <div>
-         <Header/>
-         <ProductDisplay prodData={this.state.productData}/>
+         <Header userInput={(data)=>{this.filteredProduct(data)}}/>
+         <ProductDisplay prodData={this.state.filteredData}/>
      <Footer year="2022" month="September"/>
       </div>
 

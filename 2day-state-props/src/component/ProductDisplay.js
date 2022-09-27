@@ -1,10 +1,12 @@
-import React from 'react'
-import './ProductDisplay.css'
+import React from "react";
+import "./ProductDisplay.css";
 export default function ProductDisplay(props) {
-    console.log(props)
-    const renderProduct=props.prodData.map((item)=>{
-        return(
-            <div className='card' key={item.id}>
+  console.log(props);
+  return (
+    <div className="main">
+    {
+       props.prodData.map((item)=>(
+            <div className="card" key={item.id}>
                 <img src={item.image} alt={item.name} />
                 <div>
                     <h3>{item.name}</h3>
@@ -13,12 +15,8 @@ export default function ProductDisplay(props) {
                     <p>{item.uses}</p>
                 </div>
             </div>
-        )
-    })
-    
-  return (
-    <div className='main'>
-        {renderProduct}
+       ))
+}
     </div>
   )
 }

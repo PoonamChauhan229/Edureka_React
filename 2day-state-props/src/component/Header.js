@@ -10,10 +10,12 @@ export default class Header extends React.Component {
         }
     }
     handleChange=(event)=>{
-        console.log(event.target.value)
+        // console.log(event.target.value)
         this.setState({
-            keyword:event.target.value?event.target.value:"Your text goes heree!!!" 
+            keyword:event.target.value?event.target.value:"Your text goes heree!!!"             
         })
+        // we are calling to pass the data
+        this.props.userInput(event.target.value)
     }
   render() {
     return (
